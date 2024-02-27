@@ -64,7 +64,7 @@ export default function Gallery(){
                         <li><a href="/gallery/"><GiOpenBook size={35} title='Collections'/></a></li>
                         <li><a href="/gallery/"><GiPencil size={35} title='Drawings'/></a></li>
                         <li><a href="/gallery/"><GiStoneAxe size={35} title='Sculptures'/></a></li>
-                        <li><a href="/gallery/auction"><GiCash size={35} title='Sculptures'/></a></li>
+                        <li><a href="/gallery/auction"><GiCash size={35} title='Trade'/></a></li>
                         <li className="text-2xl"><a href="/register">Register</a></li>
                    </ul>
                 </nav>
