@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  /* --background-repeat-x: calc(100% * var(--random-x));
+  --background-repeat-y: calc(100% * var(--random-y));
+  --random-x: calc(Math.random());
+  --random-y: calc(Math.random()); */
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    /* --background-repeat-x: calc(100% * var(--random-x));
+    --background-repeat-y: calc(100% * var(--random-y));
+    --random-x: calc(Math.random());
+    --random-y: calc(Math.random()); */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-image: url('../public/assets/images/chem.webp');
+  background-size:cover;
+  background-repeat:inherit;
+
+}
+
+@font-face {
+  font-family: 'Segment7';
+  src: url('./fonts/Segment7-4Gml.otf');
+  font-weight: normal;
+  font-style: italic;
+    }

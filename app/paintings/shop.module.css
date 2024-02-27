@@ -1,0 +1,404 @@
+/* @font-face {
+
+  font-family: 'CustomFont';
+  src: url('.../AutumninNovember.ttf') format('truetype')
+} */
+
+.shop-title{
+    color: white;
+     font-family:cursive; 
+  }
+  
+  
+  .motion-cart {
+    text-align: center;
+    margin: 20px;
+    /* background-color: #010e19; */
+  }
+  
+  .shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  
+  .cart-item {
+    width: 250px;
+    height: 250px;
+    margin: 70px;
+  }
+  
+  .cart-item-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+    border: 3px solid rgb(177, 148, 76);
+   
+
+  }   
+      .cart-item-image img {
+        width: 249px;
+        height: 245px;
+        object-fit: cover;
+     
+      }
+  
+
+  .cart-item-name {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+  }
+  
+  .cart-item-price {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .cart-item-list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .cart-item-name-list {
+    flex: 1;
+  }
+  
+  .cart-item-price-list {
+    margin-right: 5px;
+  }
+  
+  .button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+    width: 75px;
+  }
+
+  div.shopping-cart .cart-item .box-button {
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
+
+  @media (max-width: 767px) {
+    .box-button {
+      margin-bottom: 10px; /* Remove or adjust the margin for mobile screens */
+    }
+  }
+  
+  .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .button + .button {
+    margin-left: 3px;
+  }
+
+
+  /* Define the base border style */
+.neon-border {
+  border: 2px inherit #9500ff; /* Use your desired neon color */
+
+  /* Set up the animation */
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+/* Define the keyframes for the animation */
+@keyframes neon {
+  from {
+    border-color: #9500ff; /* Neon color */
+    box-shadow: 0 0 10px #9500ff, 0 0 20px #9500ff, 0 0 30px #9500ff; /* Add glow effect */
+  }
+  to {
+    border-color: #5200cc; /* Darker color for alternate effect */
+    box-shadow: 0 0 20px #5200cc, 0 0 30px #5200cc, 0 0 40px #5200cc; /* Add glow effect */
+  }
+}
+
+  
+  /* table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+    height: fit-content;
+  }
+  
+  th {
+    background-color: #00043d;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #00021b;
+    color: white;
+    height: fit-content;
+    margin:auto;
+  }
+  
+  tr:hover {
+    background-color: #002201;
+  } */
+
+
+
+.payment-icon {
+  width: 48px; /* Adjust the width as needed */
+  height: 48px; /* Adjust the height as needed */
+  margin: 0 auto; /* Center the image horizontally within the modal */
+  display: inline-block; /* Ensures the image is centered even if it's smaller than the specified width/height */
+  object-fit: contain; /* Maintain the image's aspect ratio while fitting it within the specified dimensions */
+}
+
+  
+  .cart-summary {
+    width: 100%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: right;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .cart-summary h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .cart-summary table {
+    width: 100%;
+  }
+  
+  .cart-summary table td {
+    padding: 8px;
+  }
+  
+  .cart-summary table tfoot tr {
+    background-color: #E2BF36;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .ul-summary-list{
+    background-color: #5a7e06;
+    box-shadow: 0 0 10px #0f98a1;
+    animation: glowing 1s ease-in-out infinite;
+  }
+  
+  @keyframes glowing {
+    0% {
+      box-shadow: 0 0 10px #3da10f;
+    }
+    50% {
+      box-shadow: 0 0 20px #387410;
+    }
+    100% {
+      box-shadow: 0 0 10px #0f98a1;
+    }
+  }
+  
+  .summary-list {
+    padding: 15px;
+  }
+
+  
+
+  
+  .check-out-header{
+    padding: 5px;
+    color: #01090f;
+    font-size: 30px;
+    justify-content: center;
+  }
+  .check-out {
+    background-color: #32685b;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    bottom: 0;
+    position: sticky;
+    width: 100%;
+  }
+  
+  .check-out-list {
+    margin-right: auto;
+    position: fixed;
+  }
+
+  .view-cart{
+    z-index:  2;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s;
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* .neonTextsize{
+    font-size: 18px;
+  } */
+
+  @media screen and (max-width: 768px) {
+    .four {
+      background-color: 'black'; 
+      margin-right: 570px;
+      margin-left: 570px;
+      width: 150px;
+      justify-content: 'center';
+    }
+  }
+
+  
+  .neonText {
+    color: #762cd6;
+    outline: #000000;
+    font-family: 'Segment7';
+    letter-spacing: 0.3rem; 
+    font-size: 40px;
+    animation: flicker 2.5s infinite alternate;
+    mix-blend-mode: screen;
+    text-shadow:
+    0 0 7px #ffffff,
+      0 0 10px rgb(140, 0, 255),
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px rgb(0, 60, 255);
+  }
+
+  .neonTextDots {
+    color: #762cd6;
+    letter-spacing: 0.1rem; 
+    font-size: 60px;
+    mix-blend-mode: screen;
+    animation: flicker 2.5s infinite alternate;
+    text-shadow:
+    0 0 7px #ffffff,
+      0 0 10px rgb(140, 0, 255),
+      0 0 21px #07dcf8,
+      0 0 42px #0fa,
+      0 0 82px rgb(0, 119, 255),
+      0 0 92px #5900ff,
+      0 0 102px rgb(76, 0, 255),
+      0 0 151px rgb(0, 60, 255);
+  }
+
+
+
+.flicker{
+  animation: flicker 5s infinite ease;
+}
+
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 50%, 57%{
+
+      text-shadow:
+      0 0 7px #0c092c,
+      0 0 10px rgb(92, 72, 109),
+      0 0 21px #27001f,
+      0 0 42px rgb(35, 0, 116),
+      0 0 82px rgb(49, 46, 97),
+      0 0 92px rgb(45, 34, 71),
+      0 0 102px rgb(1, 61, 63),
+      0 0 151px rgb(0, 8, 36);
+  
+
+  }
+  20%, 24%, 55% {       
+    text-shadow: none;
+  }
+}
+
+@keyframes pulsate {
+    
+  100% {
+
+      text-shadow:
+      0 0 7px #0c092c,
+      0 0 10px rgb(56, 44, 66),
+      0 0 21px #27001f,
+      0 0 42px rgb(35, 0, 116),
+      0 0 82px rgb(49, 46, 97),
+      0 0 92px rgb(45, 34, 71),
+      0 0 102px rgb(1, 61, 63),
+      0 0 151px rgb(0, 8, 36);
+  }
+  
+  0% {
+
+    text-shadow:
+    0 0 7px #0c092c,
+    0 0 10px rgb(54, 42, 65),
+    0 0 21px #27001f,
+    0 0 42px rgb(35, 0, 116),
+    0 0 82px rgb(49, 46, 97),
+    0 0 92px rgb(45, 34, 71),
+    0 0 102px rgb(1, 61, 63),
+    0 0 151px rgb(0, 8, 36);
+
+  }
+}
+
+.hidden{
+opacity: 0;
+}
+
+.show{
+  opacity: 1;
+}
+
