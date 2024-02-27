@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { CartAdd } from '../components/cartAdd';
 import styles from './shop.module.css';
 import NavMenu from '../components/navmenu';
@@ -63,17 +63,7 @@ export default function Shop() {
         </div>
 
         <div className=" lg:border lg: border-teal-700  lg:rounded-full mx-auto w-[150px] lg:backdrop-brightness-90" style={{ display:'flex' , justifyContent:'center'}}>
-             <div  style={{
-                    height: 70,
-                     width: 110,
-                    justifyContent: 'center'}}
-                     >
-        <div className="inline">
-        <h1 className={`${styles.neonText} ${styles.flicker} inline`}>4</h1> 
-        </div>
-        <p className={`${styles.neonTextDots} ${styles.flicker} inline text-5xl`}>:</p> 
-        <div className="inline"><h1 className={`${styles.neonText} ${styles.flicker} inline`}>20</h1> </div>
-        </div>
+
         </div>
        
       

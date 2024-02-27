@@ -20,9 +20,6 @@ export default async function Home() {
           href="https://fonts.googleapis.com/css?family=Calligraffitti"
         />
       </Head>
-    <div className=" p-3 flex-1 text-center text-5xl">
-        <p style={{fontFamily: 'Calligraffitti'}} >Elevate Your Mind</p>
-    </div>
 
 <div className={styles["iframe-container"]}>
 <div className={styles["iframe-wrapper"]}>
@@ -47,9 +44,6 @@ export default async function Home() {
 </div>
 </div>
 <footer>
-    <div className={styles["footer-text"]}>
-   Elevate Your Life
-    </div>
     <div  className={styles["footer-text-motion"]} >
     &copy; {new Date().getFullYear()} MoTioN Inc
     </div>

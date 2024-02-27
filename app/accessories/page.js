@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import { CartAdd } from '../components/cartAdd';
 import styles from './shop.module.css';
 import NavMenu from '../components/navmenu';
 import emailjs from 'emailjs-com';
@@ -10,48 +11,68 @@ import emailjs from 'emailjs-com';
 </head>
 
 export default function Shop() {
-  const [cartItems, setCartItems] = useState([]);
-  const [quantity, setQuantity] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [orderSummary] = useState([])
-  const[viewCart, setViewCart]=useState(false)
-  const [userName, setUserName] =useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [area, setArea] = useState('');
+
+  const {
+    cartItems,
+    quantity,
+    total,
+    orderSummary,
+    viewCart,
+    userName,
+    phoneNumber,
+    area,
+    isSending,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleIncrementQuantity,
+    handleDecrementQuantity,
+    handleViewCart,
+    handleUserNameChange,
+    handlePhoneNumberChange,
+    handleAreaChange,
+    sendEmail,
+    handleSendSMS,
+    closeCart,
+}   = CartAdd()
+  // const [cartItems, setCartItems] = useState([]);
+  // const [quantity, setQuantity] = useState(0);
+  // const [total, setTotal] = useState(0);
+  // const [orderSummary] = useState([])
+  // const [viewCart, setViewCart]=useState(false)
+  // const [userName, setUserName] =useState('');
+  // const [phoneNumber, setPhoneNumber] = useState('');
+  // const [area, setArea] = useState('');
+
+
+  // const handleAddToCart = (item) => {
+  //   const updatedItems = cartItems.map((cartItem) =>
+  //     cartItem.id === item.id
+  //       ? { ...cartItem, quantity: cartItem.quantity + 1, selected: true }
+  //       : cartItem
+  //   );
+  //   setCartItems([...updatedItems, { ...item, quantity: 1, selected: true }]);
  
+  // };
 
-  
-
-
-  const handleAddToCart = (item) => {
-    const updatedItems = cartItems.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1, selected: true }
-        : cartItem
-    );
-    setCartItems([...updatedItems, { ...item, quantity: 1, selected: true }]);
+  // const handleRemoveFromCart = (item) => {
+  //   const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id);
+  //   setCartItems(updatedCartItems);
  
-  };
+  // };
 
-  const handleRemoveFromCart = (item) => {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id);
-    setCartItems(updatedCartItems);
- 
-  };
+  // const handleIncrementQuantity = (item) => {
+  //   const updatedCartItems = cartItems.map((cartItem) =>
+  //     cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+  //   );
+  //   setCartItems(updatedCartItems);
+  // };
 
-  const handleIncrementQuantity = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) =>
-      cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-    );
-    setCartItems(updatedCartItems);
-  };
-
-  const handleDecrementQuantity = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) =>
-      cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-    );
-    setCartItems(updatedCartItems.filter((cartItem) => cartItem.quantity > 0));
-  };
+  // const handleDecrementQuantity = (item) => {
+  //   const updatedCartItems = cartItems.map((cartItem) =>
+  //     cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+  //   );
+  //   setCartItems(updatedCartItems.filter((cartItem) => cartItem.quantity > 0));
+  // };
 
   const itemList = [
     { id: 1, name: 'Brushes', price: 30000,  priceDisplay:'30,000', image: 'assets/images/Brushes.webp' },
@@ -64,82 +85,82 @@ export default function Shop() {
 
  
 
-  useEffect(() => {
-    const newTotal = cartItems.reduce((total, cartItem) => total + cartItem.price * cartItem.quantity, 0);
-    setTotal(newTotal);
-  }, [cartItems]
-  , [orderSummary]);
+  // useEffect(() => {
+  //   const newTotal = cartItems.reduce((total, cartItem) => total + cartItem.price * cartItem.quantity, 0);
+  //   setTotal(newTotal);
+  // }, [cartItems]
+  // , [orderSummary]);
 
 
-  useEffect(() => {
-    const newQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    setQuantity(newQuantity);
+  // useEffect(() => {
+  //   const newQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  //   setQuantity(newQuantity);
   
-    const newTotal = cartItems.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0
-    );
-    setTotal(newTotal);
-  }, [cartItems]);
+  //   const newTotal = cartItems.reduce(
+  //     (sum, item) => sum + item.price * item.quantity,
+  //     0
+  //   );
+  //   setTotal(newTotal);
+  // }, [cartItems]);
 
 
-  const handleViewCart = () =>{
-    setViewCart(true)
+  // const handleViewCart = () =>{
+  //   setViewCart(true)
   
-  } 
+  // } 
 
-  const handleUserNameChange = (event) => {
-    setUserName(event.target.value);
-  };
+  // const handleUserNameChange = (event) => {
+  //   setUserName(event.target.value);
+  // };
 
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
-  };
+  // const handlePhoneNumberChange = (event) => {
+  //   setPhoneNumber(event.target.value);
+  // };
   
-  const handleAreaChange = (event) => {
-    setArea(event.target.value);
-  };
+  // const handleAreaChange = (event) => {
+  //   setArea(event.target.value);
+  // };
 
-  const sendEmail = async (messageBody) => {
-    // Your email service ID and template ID
-    const serviceId = 'service_qmmoxrp'; // Replace with your actual service ID
-    const templateId = 'template_iudz49q'; // Replace with your actual template ID
+  // const sendEmail = async (messageBody) => {
+  //   // Your email service ID and template ID
+  //   const serviceId = 'service_qmmoxrp'; // Replace with your actual service ID
+  //   const templateId = 'template_iudz49q'; // Replace with your actual template ID
   
-    // Your email parameters (from, to, message, etc.)
-    const emailParams = {
-      from_name: 'Motion', // Replace with the sender's name
-      to_name: 'Motion', // Replace with the recipient's name
-      message: messageBody,
-    };
+  //   // Your email parameters (from, to, message, etc.)
+  //   const emailParams = {
+  //     from_name: 'Motion', // Replace with the sender's name
+  //     to_name: 'Motion', // Replace with the recipient's name
+  //     message: messageBody,
+  //   };
   
-    try {
-      const response = await emailjs.send(serviceId, templateId, emailParams, 'gROS0lsSeY2r67VyX');
-      console.log('Email sent successfully:', response);
-    } catch (error) {
-      console.error('Failed to send email:', error);
-    }
-    window.location.reload();
-  };
+  //   try {
+  //     const response = await emailjs.send(serviceId, templateId, emailParams, 'gROS0lsSeY2r67VyX');
+  //     console.log('Email sent successfully:', response);
+  //   } catch (error) {
+  //     console.error('Failed to send email:', error);
+  //   }
+  //   window.location.reload();
+  // };
   
-  const handleSendSMS = async () => {
-    const messageBody = `
-      Order Summary:
-      ${cartItems
-        .map((item) => `${item.name} x ${item.quantity}`)
-        .map((line) => `  ${line.padEnd(100)}`)
-        .join('\n')}
+  // const handleSendSMS = async () => {
+  //   const messageBody = `
+  //     Order Summary:
+  //     ${cartItems
+  //       .map((item) => `${item.name} x ${item.quantity}`)
+  //       .map((line) => `  ${line.padEnd(100)}`)
+  //       .join('\n')}
       
-      Total: UGX ${total}
+  //     Total: UGX ${total}
       
-      UserName : ${userName}
-      Phone Number: ${phoneNumber}
-      Area: ${area}
-    `;
+  //     UserName : ${userName}
+  //     Phone Number: ${phoneNumber}
+  //     Area: ${area}
+  //   `;
   
-    // Call the sendEmail function to send the email
-    sendEmail(messageBody);
+  //   // Call the sendEmail function to send the email
+  //   sendEmail(messageBody);
 
-  };
+  // };
   
 
   return (
@@ -153,11 +174,7 @@ export default function Shop() {
 
 
       <div className={styles["motion-cart"]}>
-        <div className="inline">
-        <h1 className={`${styles.neonText} ${styles.flicker} inline`}>4</h1> 
-        </div>
-        <p className={`${styles.neonTextDots} ${styles.flicker} inline text-5xl text-white`}>:</p> <div className="inline"><h1 className={`${styles.neonText} ${styles.flicker} inline`}>20</h1> </div>
-        <div className={styles["shopping-cart"]}>
+       <div className={styles["shopping-cart"]}>
           {itemList.map((item) => (
             <div className={styles["cart-item"]} key={item.id}>
               <div className={styles["cart-item-image"]}>
@@ -207,6 +224,22 @@ export default function Shop() {
       </div> 
 
       {viewCart && orderSummary && (    
+          <Cart 
+                isSending={isSending}
+                handleSendSMS={handleSendSMS} 
+                handleViewCart={handleViewCart}
+                handleUserNameChange={handleUserNameChange}
+                handlePhoneNumberChange={handlePhoneNumberChange}
+                handleAreaChange={handleAreaChange}
+                userName={userName}
+                phoneNumber={phoneNumber}
+                area={area}
+                cartItems={cartItems}
+                total={total} 
+                setViewCart={closeCart}
+                />
+          )} 
+      {/* {viewCart && orderSummary && (    
   <div className={styles["view-cart"]}>
 <div className="fixed inset-0 z-50 flex items-center justify-center">
 <div className="modal modal-open">
@@ -302,7 +335,7 @@ export default function Shop() {
       </div>
   </div>
 
-          )}  
+          )}   */}
 
     </div>
     
