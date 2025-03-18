@@ -163,19 +163,19 @@ export default function Shop() {
                   {cartItems.map((item) => (
                     <div key={item.id} className="py-1">
                       <div className="flex justify-between items-center mb-2">
+                        <div className="flex">
+                          <button
+                            onClick={() => handleRemoveFromCart(item)}
+                            className=" text-red-600 hover:text-red-800 transition"
+                          >
+                            <GiTrashCan size={35} />
+                          </button>
+                        </div>
+
                         <span className="font-medium text-black">
                           {item.name}
                         </span>
                         <div className="flex space-x-5">
-                          <div className="flex">
-                            <button
-                              onClick={() => handleRemoveFromCart(item)}
-                              className=" text-red-600 hover:text-red-800 transition"
-                            >
-                              <GiTrashCan size={35} />
-                            </button>
-                          </div>
-
                           <div className="text-black flex items-center border border-gray-300 rounded-md">
                             <button
                               onClick={() => handleDecrementQuantity(item)}
@@ -184,7 +184,7 @@ export default function Shop() {
                               -
                             </button>
                             <span className="px-3 py-1 text-sm">
-                              {item.quantity}
+                              {item.price * item.quantity}
                             </span>
                             <button
                               onClick={() => handleIncrementQuantity(item)}

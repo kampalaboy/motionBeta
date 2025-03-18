@@ -1,19 +1,17 @@
-
-
 .payment-icon {
-    width: 48px; /* Adjust the width as needed */
-    height: 48px; /* Adjust the height as needed */
-    margin: 0 auto; /* Center the image horizontally within the modal */
-    display: inline-block; /* Ensures the image is centered even if it's smaller than the specified width/height */
-    object-fit: contain; /* Maintain the image's aspect ratio while fitting it within the specified dimensions */
-  }
-  
-  .view-cart{
-    z-index:  2;
-  }
-  
-  .nav-tex{
-    font-family: 'Calligraffiti', sans-serif;
+  width: 48px; /* Adjust the width as needed */
+  height: 48px; /* Adjust the height as needed */
+  margin: 0 auto; /* Center the image horizontally within the modal */
+  display: inline-block; /* Ensures the image is centered even if it's smaller than the specified width/height */
+  object-fit: contain; /* Maintain the image's aspect ratio while fitting it within the specified dimensions */
+}
+
+.view-cart {
+  z-index: 2;
+}
+
+.nav-tex {
+  font-family: "Calligraffiti", sans-serif;
 }
 
 .cart-item-list {
@@ -50,7 +48,16 @@
   position: fixed;
 }
 
-.dropdown{
+.dropdown {
   width: 250;
 }
-  
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully invisible */
+  }
+}
