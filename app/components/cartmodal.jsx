@@ -69,19 +69,11 @@ const Cart = ({
                 {cartItems.map((item, index) => (
                   <li key={index} className="py-3 flex items-center">
                     <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700 flex items-center justify-center mr-4">
-                      {item.image ? (
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={64}
-                          height={64}
-                          className="h-full w-full object-contain"
-                        />
-                      ) : (
-                        <div className="text-gray-400 dark:text-gray-500 text-xs text-center">
-                          No image
-                        </div>
-                      )}
+                      <img
+                        src={`https://res.cloudinary.com/dayp9uzer/image/upload/${item.name}.jpg`}
+                        alt={item.name}
+                        className="w-full h-64 object-cover rounded-t-lg"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
