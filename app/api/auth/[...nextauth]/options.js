@@ -1,12 +1,23 @@
 import Bidder from "@/app/(models)/Bidder";
 import User from "@/app/(models)/User";
 import FacebookProvider from "next-auth/providers/facebook";
+import TwitterProvider from "next-auth/providers/twitter";
+import GoogleProvider from "next-auth/providers/google";
 
 const Options = {
   providers: [
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    // FacebookProvider({
+    //   clientId: process.env.FACEBOOK_ID,
+    //   clientSecret: process.env.FACEBOOK_SECRET,
+    // }),
+    TwitterProvider({
+      clientId: process.env.X_ID,
+      clientSecret: process.env.X_SECRET,
+      version: "2.0",
     }),
   ],
 

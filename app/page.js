@@ -37,7 +37,7 @@ export default function Home() {
                 <div className="relative h-96">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
                   <img
-                    src="/assets/images/M.png"
+                    src="/assets/images/cross.png"
                     alt="Paintings"
                     className="w-[200px] h-[200px] transition duration-500 group-hover:scale-110"
                   />

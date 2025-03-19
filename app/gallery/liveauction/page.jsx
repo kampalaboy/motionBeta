@@ -169,10 +169,8 @@ const Auction = () => {
                 </div>
 
                 <div className="flex mb-4">
-                  <Image
-                    width={120}
-                    height={120}
-                    src={showArt.image}
+                  <img
+                    src={`https://res.cloudinary.com/dayp9uzer/image/upload/${showArt.image}.jpg`}
                     alt={showArt.name}
                     className="w-24 h-24 object-contain rounded-lg mr-4"
                   />
@@ -535,10 +533,8 @@ const Auction = () => {
 
                     <div className="p-4">
                       <div className="mb-6">
-                        <Image
-                          width={350}
-                          height={350}
-                          src={showArt.image}
+                        <img
+                          src={`https://res.cloudinary.com/dayp9uzer/image/upload/${showArt.image}.jpg`}
                           alt={showArt.name}
                           className="w-full h-64 object-contain rounded-lg"
                         />

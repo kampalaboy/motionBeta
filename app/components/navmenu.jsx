@@ -17,12 +17,12 @@ export default function NavMenu({
         <div className="flex-1">
           <a href="/" className={`btn btn-ghost normal-case text-xl`}>
             <Image
-              width={25}
-              height={25}
+              width={55}
+              height={55}
+              alt={"AA"}
               style={{}}
-              src="/assets/images/M.png"
+              src="/assets/images/AA.png"
             />
-            <p className="hidden sm:block">oTioN</p>
           </a>
         </div>
         <div className="flex-none">

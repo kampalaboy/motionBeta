@@ -121,7 +121,7 @@ export default function Shop() {
             {/* Header/Logo Area */}
             <div className="flex justify-center mb-6">
               <img
-                src="assets/images/M1.webp"
+                src="assets/images/cross.png"
                 className="h-24 w-24 lg:h-32 lg:w-32 object-contain"
                 alt="Store Logo"
               />
