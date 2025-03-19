@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import styles from "./navmenu.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
@@ -16,10 +15,7 @@ export default function NavMenu({
     <div>
       <header className="navbar bg-teal-500">
         <div className="flex-1">
-          <a
-            href="/"
-            className={`btn btn-ghost normal-case text-xl ${styles["nav-text"]}`}
-          >
+          <a href="/" className={`btn btn-ghost normal-case text-xl`}>
             <Image
               width={25}
               height={25}
@@ -35,7 +31,7 @@ export default function NavMenu({
 
             <div
               tabIndex={0}
-              className={`${styles.dropdown} mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow`}
+              className={`mt-3 z-[1] card card-compact dropdown-content w-64 bg-base-100 shadow`}
             >
               <div className="card-body">
                 <span className="font-bold text-lg">{quantity} Items</span>

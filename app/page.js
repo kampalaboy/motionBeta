@@ -1,7 +1,6 @@
 "use client";
 
 import NavMenu from "./components/navmenu";
-import styles from "./home.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import { Suspense, useEffect, useState } from "react";
@@ -29,17 +28,6 @@ export default function Home() {
             href="https://fonts.googleapis.com/css?family=Calligraffitti|Montserrat:400,700&display=swap"
           />
         </Head>
-
-        {/* Hero Section */}
-
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-3">
-          <h1
-            className="text-6xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg"
-            style={{ fontFamily: "Calligraffitti" }}
-          >
-            Elevate Your Mind
-          </h1>
-        </div>
 
         {/* Featured Categories */}
         <div className="py-16 px-4 max-w-7xl mx-auto">

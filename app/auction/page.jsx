@@ -2,7 +2,6 @@
 
 import React, { Suspense, useEffect } from "react";
 import { CartAdd } from "../components/cartAdd";
-import styles from "./shop.module.css";
 import NavMenu from "../components/navmenu";
 import Cart from "../components/cartmodal";
 import Loading from "../loading";
@@ -35,42 +34,42 @@ export default function Shop() {
   const itemList = [
     {
       id: 1,
-      name: "Motion Black",
+      name: "Angel",
       price: 30000,
       priceDisplay: "30,000",
       image: "/assets/images/MotionBlack.webp",
     },
     {
       id: 2,
-      name: "Motion Silver",
+      name: "Rock",
       price: 40000,
       priceDisplay: "40,000",
       image: "/assets/images/MotionSilver.webp",
     },
     {
       id: 3,
-      name: "Motion Gold",
+      name: "Light",
       price: 50000,
       priceDisplay: "50,000",
       image: "/assets/images/MotionGold.webp",
     },
     {
       id: 4,
-      name: "Motion Red",
+      name: "Sketch",
       price: 30000,
       priceDisplay: "30,000",
       image: "/assets/images/MotionRed.webp",
     },
     {
       id: 5,
-      name: "Motion Green",
+      name: "Sushi",
       price: 40000,
       priceDisplay: "40,000",
       image: "/assets/images/MotionBlue.jpg",
     },
     {
       id: 6,
-      name: "Motion Blue",
+      name: "Lucy",
       price: 50000,
       priceDisplay: "50,000",
       image: "/assets/images/MotionGreen.jpg",
@@ -118,68 +117,73 @@ export default function Shop() {
             />
           </div>
 
-          <div className={styles["motion-cart"]}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignSelf: "center",
-                margin: 0,
-              }}
-            >
+          <div className="container mx-auto px-4 py-8">
+            {/* Header/Logo Area */}
+            <div className="flex justify-center mb-6">
               <img
                 src="assets/images/M1.webp"
-                style={{ height: 150, width: 150 }}
+                className="h-24 w-24 lg:h-32 lg:w-32 object-contain"
+                alt="Store Logo"
               />
             </div>
 
-            <div
-              className=" lg:border lg: border-teal-700  lg:rounded-full mx-auto w-[150px] lg:backdrop-brightness-90"
-              style={{ display: "flex", justifyContent: "center" }}
-            ></div>
+            {/* Divider */}
+            <div className="w-full max-w-md mx-auto border-b border-teal-700 mb-8"></div>
 
-            <div className={styles["shopping-cart"]}>
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {itemList.map((item) => (
-                <div className={`${styles["cart-item"]}`} key={item.id}>
-                  <div className={` rounded-xl ${styles["cart-item-image"]}`}>
+                <div
+                  key={item.id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="aspect-w-1 aspect-h-1 w-full">
                     <img
-                      className="rounded-xl"
-                      src={item.image}
+                      src={`https://res.cloudinary.com/dayp9uzer/image/upload/${item.name}.jpg`}
                       alt={item.name}
+                      className="w-full h-64 object-cover rounded-t-lg"
                     />
                   </div>
-                  <div className={styles["cart-item-name"]}>{item.name}</div>
-                  <div className={styles["cart-item-price"]}>
-                    UGX {item.priceDisplay}
+
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">
+                      {item.name}
+                    </h3>
+                    <p className="text-teal-700 font-bold text-xl mb-4">
+                      UGX {item.priceDisplay}
+                    </p>
+
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      disabled={item.id.selected}
+                      className={`w-full py-2 px-4 rounded-lg font-medium ${
+                        item.id.selected
+                          ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                          : "bg-teal-600 hover:bg-teal-700 text-white"
+                      } transition-colors duration-200`}
+                    >
+                      {item.id.selected ? "Bid Placed" : "Place Bid"}
+                    </button>
                   </div>
-                  <button
-                    className={styles["button"]}
-                    onClick={() => {
-                      handleAddToCart(item);
-                    }}
-                    disabled={item.id.selected} // Disable the button if item is already selected
-                  >
-                    Place Bid
-                  </button>
                 </div>
               ))}
             </div>
 
-            <div className={styles["shopping-cart"]}>
-              <div style={{ padding: 40, paddingLeft: 40 }}>
-                <div style={{ width: 250 }}>
-                  <a href="/gallery">
-                    <img
-                      aria-label="Gallery"
-                      className={`rounded-xl ${styles["neon-border"]}`}
-                      src="assets/images/Gallery.webp"
-                      alt="Gallery"
-                    />
-                  </a>
-                </div>
+            {/* Gallery Section */}
+            <div className="mt-12 text-center">
+              <div className="inline-block mx-auto">
+                <a href="/gallery" className="block">
+                  <img
+                    src="assets/images/Gallery.webp"
+                    alt="Gallery"
+                    className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-xs mx-auto"
+                  />
+                  <p className="mt-2 text-lg font-medium text-gray-700">
+                    Browse Gallery
+                  </p>
+                </a>
               </div>
             </div>
-
             <footer className="bg-green-500 bottom-0 sticky mx-auto lg:w-[30%] rounded-lg shadow-lg border border-gray-200 p-4">
               <div className="text-xs text-gray-700 mb-3">
                 <p>Minimum bid UGX 20,000</p>
