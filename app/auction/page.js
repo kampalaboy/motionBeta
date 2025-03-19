@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { CartAdd } from "../components/cartAdd";
 import styles from "./shop.module.css";
 import NavMenu from "../components/navmenu";
@@ -64,7 +64,7 @@ export default function Shop() {
     {
       id: 5,
       name: "Motion Green",
-      price: 50000,
+      price: 40000,
       priceDisplay: "40,000",
       image: "/assets/images/MotionBlue.jpg",
     },
@@ -77,6 +77,17 @@ export default function Shop() {
     },
   ];
 
+  useEffect(() => {
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(
+      `@keyframes blink {
+         0%, 100% { opacity: 1; }
+         50% { opacity: 0; }
+       }`,
+      styleSheet.cssRules.length
+    );
+  }, [total]);
+
   return (
     <main className="min-h-screen min-w-screen">
       <Suspense fallback={<Loading />}>
@@ -88,6 +99,22 @@ export default function Shop() {
               orderSummary={orderSummary}
               quantity={quantity}
               total={total}
+              totalBidDiv={
+                <div
+                  className="flex bg-green-500 rounded-lg text-base sm:font-[10px]"
+                  style={
+                    total > 0
+                      ? {
+                          animation: "blink 1.5s infinite",
+                          textShadow: "0 0 5px rgba(0, 255, 0)",
+                        }
+                      : {}
+                  }
+                >
+                  <label className="pr-1 text-green-100">Total Bid:</label>
+                  <span className="text-green-800">{total}</span>
+                </div>
+              }
             />
           </div>
 

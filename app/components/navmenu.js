@@ -5,7 +5,12 @@ import styles from "./navmenu.module.css";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
-export default function NavMenu({ handleViewCart, quantity, total }) {
+export default function NavMenu({
+  handleViewCart,
+  quantity,
+  total,
+  totalBidDiv,
+}) {
   const { data: session } = useSession();
   return (
     <div>
@@ -26,34 +31,7 @@ export default function NavMenu({ handleViewCart, quantity, total }) {
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end w-100">
-            <div className="flex ">
-              <label
-                className="sm:font-[10px] pr-1 text-green-100"
-                style={
-                  total > 0
-                    ? {
-                        animation: "blink 1.5s infinite",
-                        textShadow: "0 0 5px rgba(0, 255, 0)",
-                      }
-                    : {}
-                }
-              >
-                Total Bid:
-              </label>
-              <span
-                className="text-green-800"
-                style={
-                  total > 0
-                    ? {
-                        animation: "blink 1.5s infinite",
-                        textShadow: "0 0 5px rgba(0, 255, 0)",
-                      }
-                    : {}
-                }
-              >
-                {total}
-              </span>
-            </div>
+            {totalBidDiv}
 
             <div
               tabIndex={0}
