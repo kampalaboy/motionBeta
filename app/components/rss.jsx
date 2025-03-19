@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 const RssFeed = () => {
+  const NewsAPI = process.env.NEWS_API_KEY;
   const [feedItems, setFeedItems] = useState([
     // Default items while loading
     {
@@ -22,10 +23,8 @@ const RssFeed = () => {
         // Using News API to fetch art-related news
         // NOTE: In a production app, you would need to call your own backend to protect your API key
         const response = await fetch(
-          "https://newsapi.org/v2/everything?q=art+gallery+exhibition&language=en&sortBy=publishedAt&pageSize=10&apiKey=01e9baddb464429187c2bb072fb18143",
+          `https://newsapi.org/v2/everything?q=art+gallery+exhibition&language=en&sortBy=publishedAt&pageSize=10&apiKey=${NewsAPI}`,
           {
-            // This is a client component, so we need to use a proxy or backend service in production
-            // as API keys shouldn't be exposed in client-side code
             headers: { Accept: "application/json" },
           }
         );
