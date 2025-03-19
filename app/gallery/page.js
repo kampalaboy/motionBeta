@@ -36,7 +36,7 @@ export default function Gallery() {
     <main className="min-h-screen">
       <Suspense fallback={<Loading />}>
         <div>
-          <NavMenu quantity={0} />
+          <NavMenu />
 
           <div
             style={{

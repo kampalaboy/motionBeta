@@ -2,7 +2,8 @@
 import { ArtPrice } from "../../utils/artValue";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { MdArrowBack } from "react-icons/md";
+import NavMenu from "@/app/components/navmenu";
+import RssFeed from "@/app/components/rss";
 
 const Auction = () => {
   const { calculateC, price, futureValue, artPieces } = ArtPrice();
@@ -54,14 +55,9 @@ const Auction = () => {
 
   return (
     <main className="min-h-screen">
+      <NavMenu />
       <div className="flex flex-col">
         <div className="bg-blue-100 flex space-x-50 pt-4">
-          <a href="/gallery">
-            <button className="justify-start mx-2">
-              <MdArrowBack size={35} />
-            </button>
-          </a>
-
           <h1
             className="font-bold text-green-900 color-gradient md:text-5xl text-3xl mx-auto"
             style={{ fontFamily: "Jost" }}
@@ -69,7 +65,7 @@ const Auction = () => {
             Live Auction
           </h1>
         </div>
-
+        <RssFeed />
         <div className="flex flex-col md:flex-row flex-1">
           {/* Main content - art grid */}
           <div
